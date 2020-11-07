@@ -23,9 +23,9 @@
         <div class="row">
             <!-- Search Bar column -->
             <div class="col-md-6">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="City, State" aria-label="Search">
-                    <button class="btn btn-success" type="submit">
+                <form id= "search-bar" class="form-inline my-2 my-lg-0">
+                    <input id= "city-name" class="form-control mr-sm-2" type="search" placeholder="City, State" aria-label="Search">
+                    <button id= "getCity"class="btn btn-success" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
@@ -39,6 +39,7 @@
                     </div>
                 </div>
                 <!-- 5-Day Forecast -->
+                <!-- Make this responsive and appear after api call? -->
                 <div class="row">
                     <div class="col-md-2">
                         <h2>5 Day forcast</h2>
