@@ -7,21 +7,21 @@ var cityName = "Oakland"
 var requestWeatherUrl= 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&appid=d6023dc0b7605243dca140129a0bd39b' ;
 //var requestWeatherUrl= 'https://api.openweathermap.org/data/2.5/weather?q=Long Beach&units=imperial&appid=d6023dc0b7605243dca140129a0bd39b'
 //5 day forecast api url
-//var requestForecastUrl= 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&appid=' + apiKey ;
+var requestForecastUrl= 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&appid=d6023dc0b7605243dca140129a0bd39b' ;
 
-// // event listener
-// document.getElementById('getCity').addEventListener('submit', getCity);
+// event listener
+document.getElementById('getCity').addEventListener('submit', getCity);
 
 // // city name submit function
 // function cityName(e){
 //     e.preventDefault();
 
-//     let title = document.getElementById('title').nodeValue;
-//     let body = document.getElementById('body').nodeValue;
+//     let title = document.getElementById('title').value;
+//     let body = document.getElementById('body').value;
 
 //     fetch(currentURL)
 // }
-
+getApi(requestWeatherUrl);
 
 // Fetch Current Weather
 function getApi(requestWeatherUrl) {
@@ -34,6 +34,13 @@ function getApi(requestWeatherUrl) {
         console.log(data);
         //City + Date + Icon
 
+        var code = data.weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/wn/" + code + "@2x.png";
+        
+        var iconImg = document.createElement('img');
+        iconImg.setAttribute("src", iconUrl);
+        var IconEl = document.querySelector("#weather-div");
+        IconEl.append(iconImg);
         //weather[0].id
 
         //Temp
@@ -57,5 +64,15 @@ function getApi(requestWeatherUrl) {
         // UV Index
 
     })
-};
-getApi(requestWeatherUrl);
+// function getApi(requestForecastUrl) {
+//     fetch(requestForecastUrl)
+//     .then(function (response) {
+//         console.log(response.status);
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         console.log(data);
+
+// });
+
+}
